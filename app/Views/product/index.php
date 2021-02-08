@@ -53,7 +53,7 @@
                                 <div class="btn group">
                                     <a href="<?php echo base_url('product/show/' . $data['product_id']) ?>" class="btn btn-sm btn-primary">Detail</a>
                                     <a href="<?php echo base_url('product/edit/' . $data['product_id']) ?>" class="btn btn-sm btn-success">Edit</a>
-                                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="<?php echo base_url('product/delete/' . $data['product_id']) ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ?');" class="btn btn-sm btn-danger">Delete</a>
                                 </div>
                             </td>
                         </tr>

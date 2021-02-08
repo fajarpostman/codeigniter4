@@ -18,7 +18,7 @@
     <div class="container">
         <h4>Form Edit Produk</h4>
         <hr>
-        <form action="<?php echo base_url('product/update'); ?>" method="post">
+        <form action="<?php echo base_url('product/update/'.$product['product_id']); ?>" method="post">
 
             <div class="form-group">
                 <label for="">Nama Produk</label>

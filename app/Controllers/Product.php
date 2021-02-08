@@ -44,12 +44,13 @@ class Product extends BaseController
         }
     }
 
-    public function update($id)
+    public function update($id = null)
     {
         $name = $this->request->getPost('product_name');
         $desc = $this->request->getPost('product_description');
 
         $data = [
+            'product_id' => $id,
             'product_name' => $name,
             'product_description' => $desc
         ];
@@ -75,5 +76,19 @@ class Product extends BaseController
     {
         $data['product'] = $this->product->get_product($id);
         return view('product/show', $data);
+    }
+
+    public function delete($id = null)
+    {
+        $hapus = $this->product->delete_product($id);
+
+        if ($hapus) {
+            session()->setFlashdata('success', 'Delete Product Berhasil');
+            return redirect()->to('/product');
+        }
+        else {
+            session()->setFlashdata('error', 'Delete Product Gagal');
+            return redirect()->to('/product');
+        }
     }
 }
